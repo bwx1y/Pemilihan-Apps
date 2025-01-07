@@ -14,6 +14,7 @@ public static class UserVoteExtension
         {
             new Claim(ClaimTypes.Sid, user.Id.ToString()),
             new Claim(ClaimTypes.Role, "User"),
+            new Claim(ClaimTypes.GroupSid, user.UserId.ToString())
         };
         
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));

@@ -19,7 +19,7 @@ public class Candidate
     [Column(TypeName = "TEXT")]
     public required string Descripction { get; set; }
     
-    public required Guid VoteSessionId { get; set; }
+    public Guid VoteSessionId { get; set; }
     public virtual VoteSession VoteSession { get; set; } = null!;
     
     public virtual ICollection<Vote> Vote { get; set; } = new List<Vote>();
