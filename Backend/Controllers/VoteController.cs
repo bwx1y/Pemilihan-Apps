@@ -51,6 +51,7 @@ namespace Backend.Controllers
                 {
                     Guid sId = Guid.Parse(userId.Value);
                     data = data.Where(f => f.UserId == groupGuid);
+                    data = data.Where(f =>  f.Status || f.Candidate.Any(x => x.Vote.Any(g => g.UserVoteId == sId)));
                     var result = data.ToList().Select(f => new
                     {
                         f.Id,
